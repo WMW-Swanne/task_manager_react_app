@@ -3,15 +3,18 @@ import SearchTask from './SearchTask';
 import AddTask from './AddTask';
 import Content from './Content';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function App() {
 
-	const[tasks, setTasks] = useState(JSON.parse(localStorage.getItem('taskList')));
-
+	const[tasks, setTasks] = useState(JSON.parse(localStorage.getItem('taskList')) || []);
 	const [newTask, setNewTask] = useState('')
     const [search, setSearch] = useState('')
+
+    useEffect(() => {
+        
+    }, [tasks])
 
     const setAndSaveTasks = (newTasks) => {
         setTasks(newTasks);
